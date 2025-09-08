@@ -1,4 +1,75 @@
-﻿# DevTinder--MERN-
+# DevTinder 
+
+A full-stack MERN application inspired by Tinder—built for developers to connect. Users can sign up, log in, manage their profiles, send/accept connection requests, and explore a personalized feed.
+
+🚀 Features
+
+Authentication & Authorization
+
+Login / Signup with session handling using cookies
+
+Protected routes (redirects to login if token missing)
+
+Logout feature with state reset
+
+User Profiles
+
+Edit profile with real-time updates
+
+Toast notifications on save
+
+Connections
+
+Send, accept, or reject connection requests
+
+View all connections & pending requests
+
+Feed
+
+Dynamic user feed stored in Redux
+
+User cards with connection actions
+
+UI/UX
+
+Responsive design with Tailwind CSS & DaisyUI
+
+Clean Navbar & Footer components
+
+Toasts for feedback messages
+
+🛠️ Tech Stack
+
+Frontend: React, Vite, Redux Toolkit, React Router, Axios, Tailwind CSS, DaisyUI
+Backend: Node.js, Express.js, CORS, JWT/cookie-based auth
+Database: MongoDB (via Mongoose)
+
+⚙️ Setup Instructions
+Clone the repository
+git clone https://github.com/DESTRUCTOR1411/DevTinder.git
+cd DevTinder
+
+Backend Setup
+cd backend
+npm install
+npm run dev
+
+Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+
+Make sure to configure your CORS settings in the backend:
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // your frontend URL
+    credentials: true,
+  })
+);
+
+ # DevTinder--MERN-
  
 create vite app
 
@@ -75,3 +146,4 @@ Signup New User
 
 //routing 
 Body NavBar Route=/ => Feed Route=/login => Login Route=/connetions => Connections Router=/profile => Profile
+
