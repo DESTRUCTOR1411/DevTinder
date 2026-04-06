@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express= require("express");
 const connectDB=require('./config/database.js')
 const cookieParser = require("cookie-parser")
@@ -5,9 +6,9 @@ const cors = require('cors')
 const app=express();
 
 app.use(cors({
-  origin:"http://localhost:5173",
-  credentials:true ,
-})); 
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -17,11 +18,11 @@ const profileRouter= require("./routes/profile.js");
 const requestRouter= require("./routes/request.js");
 const userRouter= require("./routes/user");
 
-app.use('/',authRouter);
-app.use('/',profileRouter);
-app.use('/',requestRouter);
+app.use('/auth',authRouter);
+app.use('/profile',profileRouter);
+app.use('/request',requestRouter);
 app.use('/',userRouter);
-
+ 
 connectDB()
   .then(()=>{
     //first connecting to the database----------

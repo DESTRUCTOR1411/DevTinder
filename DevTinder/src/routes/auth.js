@@ -12,8 +12,7 @@ authRouter.post('/signup',async(req,res)=>{
       // ..second encrypting the passwords
       const {firstName,lastName,emailId,password}= req.body;
       const passwordHash= await bcrypt.hash(password,10);//10  here is salt!!!!!
-  
-  
+   
       // creating new instance to the User model
         const user= new User({
           firstName,lastName,emailId,password: passwordHash,
@@ -22,7 +21,7 @@ authRouter.post('/signup',async(req,res)=>{
         await user.save();
         res.send("User Added succesfuly!!!");
       }catch(err){
-        res.status(400).send("Error saving the data"+err.message);
+        res.status(400).send("Error saving the data "+err.message);
       }
   
 });
@@ -44,7 +43,6 @@ authRouter.post('/login', async (req,res)=>{
         const token= await user.getJWT();
         //adding the token to the response and send it to user;
         res.cookie("token",token);
-        
         res.send(user);
       }else{
         throw new error("invalid credentials");

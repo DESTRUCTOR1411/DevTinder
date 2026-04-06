@@ -50,7 +50,8 @@ const userSchema = new mongoose.Schema({
     },
 },{
     timestamp:true,
-})
+}) 
+
 //asigning the token
 userSchema.methods.getJWT = async function(){
     const user= this;

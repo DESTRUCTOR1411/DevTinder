@@ -4,7 +4,7 @@ const {userAuth} = require("../middlewares/auth")
 const ConnectionRequest= require("../models/connectionRequest")
 const User= require("../models/user")
 
-requestRouter.post('/request/send/:status/:toUserId',userAuth, async (req,res)=>{
+requestRouter.post('/send/:status/:toUserId',userAuth, async (req,res)=>{
 
     try{
         const fromUserId=req.user._id;
@@ -18,7 +18,7 @@ requestRouter.post('/request/send/:status/:toUserId',userAuth, async (req,res)=>
             })
         }
 
-        //checking wheather the user exist or not
+        //checking wheather the user exist or not 
         const user= await User.findById(toUserId);
         if(!user){
             // throw new error("User not exists")
@@ -61,7 +61,7 @@ requestRouter.post('/request/send/:status/:toUserId',userAuth, async (req,res)=>
 
 })
 
-requestRouter.post('/request/review/:status/:requestId',userAuth, async (req,res)=>{
+requestRouter.post('/review/:status/:requestId',userAuth, async (req,res)=>{
     try{
         const loggedInUser= req.user;
         const {status, requestId}= req.params;
@@ -90,7 +90,7 @@ requestRouter.post('/request/review/:status/:requestId',userAuth, async (req,res
         const data= await connectionRequest.save();
 
         res.json({
-            message: "Connection request "+ status,data
+            message: "Connection request"+ status,data
         })
 
     }catch(err){

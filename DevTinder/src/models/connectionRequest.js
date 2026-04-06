@@ -30,7 +30,7 @@ connectionRequest.pre("save",function(next){
     const connectionRequest=this;
     //check if the fromUser is not equal to the toUser
     if(connectionRequest.fromUserId.equals(connectionRequest.toUserId)){
-        throw new error("Cannot send connectino to yourself")
+        throw new error("Cannot send connection to yourself")
     }
     next();
 })

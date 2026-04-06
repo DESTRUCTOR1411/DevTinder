@@ -8,9 +8,9 @@ const validateSignUpData=(req)=>{
     else if(!validator.isEmail(emailId)){
         throw new error("emailId is not valid");
     }
-    // else if(!validator.isStrongPassword(password)){
-    //     throw new error("Password is not strong Enough");
-    // }
+    else if(!validator.isStrongPassword(password)){
+        throw new error("Password is not strong Enough");
+    }
 }
 
 const validateEditProfileData=(req)=>{
